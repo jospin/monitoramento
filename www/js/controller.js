@@ -1,10 +1,10 @@
 var Controller = function() {
     var controller = {
         self: null,
-        initialize: function() {
+        init: function() {
             self = this;
             this.bindEvents();
-            self.renderLoginView(); 
+            self.renderLoginView();
         },
 
         bindEvents: function() {
@@ -16,7 +16,7 @@ var Controller = function() {
             if ($(this).hasClass('active')) {
                 return;
             }
-            
+
             var tab = $(this).data('tab');
             if (tab === '#add-tab') {
                 self.renderPostView();
@@ -33,9 +33,9 @@ var Controller = function() {
             $tab.empty();
             $("#tab-content").load("./views/post-project-view.html", function(data) {
                 $('#tab-content').find('#post-project-form').on('submit', self.postProject);
-            }); 
+            });
         },
-       
+
         renderSearchView: function() {
             $('.tab-button').removeClass('active');
             $('#search-tab-button').addClass('active');
@@ -47,11 +47,10 @@ var Controller = function() {
             $("#tab-content").load("./views/search-project-view.html", function(data) {
                 $projectTemplate = $('.project').remove();
                 // Load projects here
-            }); 
+            });
         },
 
         renderLoginView: function() {
-            $('.tab-button').removeClass('active');
             $('#menu').hide();
 
             var $tab = $('#tab-content');
@@ -60,10 +59,10 @@ var Controller = function() {
             var $projectTemplate = null;
             $("#tab-content").load("./views/login.html", function(data) {
 
-            }); 
+            });
         }
 
     }
-    controller.initialize();
+    controller.init();
     return controller;
 }
