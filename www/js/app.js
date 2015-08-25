@@ -1,9 +1,7 @@
-var MT4 = {};
-
 var controller = null;
+var login = null;
 
-MT4.app = {
-
+app = {
     init: function() {
         if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
             document.addEventListener("deviceready", this.onDeviceReady, false);
@@ -13,7 +11,8 @@ MT4.app = {
     },
     onDeviceReady: function() {
         controller = new Controller();
+        login = new Login();
     }
 };
 
-MT4.app.init();
+app.init();

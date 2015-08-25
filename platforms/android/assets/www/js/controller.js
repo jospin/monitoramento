@@ -4,16 +4,11 @@ var Controller = function() {
         initialize: function() {
             self = this;
             this.bindEvents();
-            self.renderSearchView();
+            self.renderLoginView(); 
         },
 
         bindEvents: function() {
-            var menu = document.getElementsByClassName('mt4-menu');
-            for(var i=0; i < menu.length; i++) {
-                menu[i].window.addEventListener('click', function(){
-                    var method = menu.a.href;
-                })
-            }
+            $('.tab-button').on('click', this.onTabClick);
         },
 
         onTabClick: function(e) {
@@ -21,7 +16,7 @@ var Controller = function() {
             if ($(this).hasClass('active')) {
                 return;
             }
-
+            
             var tab = $(this).data('tab');
             if (tab === '#add-tab') {
                 self.renderPostView();
@@ -36,11 +31,11 @@ var Controller = function() {
 
             var $tab = $('#tab-content');
             $tab.empty();
-            $("#tab-content").load("./view/post-project-view.html", function(data) {
+            $("#tab-content").load("./views/post-project-view.html", function(data) {
                 $('#tab-content').find('#post-project-form').on('submit', self.postProject);
-            });
+            }); 
         },
-
+       
         renderSearchView: function() {
             $('.tab-button').removeClass('active');
             $('#search-tab-button').addClass('active');
@@ -49,11 +44,25 @@ var Controller = function() {
             $tab.empty();
 
             var $projectTemplate = null;
-            $("#tab-content").load("./view/search-project-view.html", function(data) {
+            $("#tab-content").load("./views/search-project-view.html", function(data) {
                 $projectTemplate = $('.project').remove();
                 // Load projects here
-            });
+            }); 
+        },
+
+        renderLoginView: function() {
+            $('.tab-button').removeClass('active');
+            $('#menu').hide();
+
+            var $tab = $('#tab-content');
+            $tab.empty();
+
+            var $projectTemplate = null;
+            $("#tab-content").load("./views/login.html", function(data) {
+
+            }); 
         }
+
     }
     controller.initialize();
     return controller;
