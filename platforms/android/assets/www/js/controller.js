@@ -2,9 +2,10 @@ var Controller = function() {
     var controller = {
         self: null,
         init: function() {
+            console.log('Vem');
             self = this;
             this.bindEvents();
-            self.renderLoginView();
+            self.renderSearchView();
         },
 
         bindEvents: function() {
@@ -49,19 +50,6 @@ var Controller = function() {
                 // Load projects here
             });
         },
-
-        renderLoginView: function() {
-            $('.tab-button').removeClass('active');
-            $('#menu').hide();
-
-            var $tab = $('#tab-content');
-            $tab.empty();
-
-            var $projectTemplate = null;
-            $("#tab-content").load("./views/login.html", function(data) {
-
-            });
-        }
 
     }
     controller.init();

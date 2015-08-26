@@ -1,22 +1,35 @@
-var User = {};
-User.name = 'Lucien Jospin';
-User.user = 'ljospin';
-User.status = 1;
-
+var controller;
 var Login = function() {
     var login = {
         init: function() {
-            $('#btn-login').on('click', this.onLogin);
+            if (!login.status) {
+                this.renderLoginView();
+            }
         },
-        onLogin = function(){
-
-            // Ok no login
-            var user = $('#user').value;
-            var pass = $('#password').value;
-            var user = new User;
+        valida: function() {
+            if (login.status == true) {
+                return true;
+            }
+        },
+        onLogin: function(){
+            login.status = true;
             $('#menu').show();
-            alert(user.name);
-            return user
+            return login.valida();
+        },
+        renderLoginView: function() {
+            if (login.status == true) {
+                return login;
+            }
+            $('#menu').hide();
+
+            var $tab = $('#tab-content');
+            $tab.empty();
+            var $projectTemplate = null;
+            $("#tab-content").load("./views/login.html", function(data) {
+                $projectTemplate = $('.project').remove();
+                $('#btn-login').on('click', login.onLogin);
+            });
+
         }
     }
     login.init();

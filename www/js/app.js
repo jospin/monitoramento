@@ -10,8 +10,10 @@ app = {
         }
     },
     onDeviceReady: function() {
-        controller = new Controller();
         login = new Login();
+        if (login.valida()) {
+            controller = new Controller();
+        }
     }
 };
 

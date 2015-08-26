@@ -1,6 +1,6 @@
-Node version: v0.10.33
+Node version: v0.10.29
 
-Cordova version: 5.2.0
+Cordova version: 5.1.1
 
 Config.xml file: 
 
@@ -40,69 +40,27 @@ Android platform:
 
 Available Android targets:
 ----------
-id: 1 or "android-10"
-     Name: Android 2.3.3
-     Type: Platform
-     API level: 10
-     Revision: 2
-     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WVGA800 (default), WVGA854
- Tag/ABIs : default/armeabi, default/x86
-----------
-id: 2 or "android-19"
-     Name: Android 4.4.2
-     Type: Platform
-     API level: 19
-     Revision: 4
-     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
- Tag/ABIs : default/x86
-----------
-id: 3 or "android-21"
+id: 1 or "android-21"
      Name: Android 5.0.1
      Type: Platform
      API level: 21
      Revision: 2
-     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearSquare, AndroidWearRound, AndroidWearSquare
- Tag/ABIs : android-tv/armeabi-v7a, android-tv/x86, android-wear/armeabi-v7a, android-wear/x86, default/armeabi-v7a, default/x86, default/x86_64
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : android-tv/x86
 ----------
-id: 4 or "android-22"
+id: 2 or "android-22"
      Name: Android 5.1.1
      Type: Platform
      API level: 22
      Revision: 2
-     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
- Tag/ABIs : android-tv/armeabi-v7a, android-tv/x86, default/armeabi-v7a, default/x86, default/x86_64
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320
+ Tag/ABIs : android-wear/x86
 ----------
-id: 5 or "Google Inc.:Google APIs:21"
-     Name: Google APIs
-     Type: Add-On
-     Vendor: Google Inc.
-     Revision: 1
-     Description: Android + Google APIs
-     Based on Android 5.0.1 (API level 21)
-     Libraries:
-      * com.android.future.usb.accessory (usb.jar)
-          API for USB Accessories
-      * com.google.android.media.effects (effects.jar)
-          Collection of video effects
-      * com.google.android.maps (maps.jar)
-          API for Google Maps
-     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearSquare, AndroidWearRound, AndroidWearSquare
- Tag/ABIs : google_apis/x86
-----------
-id: 6 or "Google Inc.:Google APIs:22"
-     Name: Google APIs
-     Type: Add-On
-     Vendor: Google Inc.
-     Revision: 1
-     Description: Android + Google APIs
-     Based on Android 5.1.1 (API level 22)
-     Libraries:
-      * com.android.future.usb.accessory (usb.jar)
-          API for USB Accessories
-      * com.google.android.media.effects (effects.jar)
-          Collection of video effects
-      * com.google.android.maps (maps.jar)
-          API for Google Maps
+id: 3 or "android-MNC"
+     Name: Android M (Preview)
+     Type: Platform
+     API level: MNC
+     Revision: 2
      Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
- Tag/ABIs : google_apis/armeabi-v7a, google_apis/x86, google_apis/x86_64
+ Tag/ABIs : no ABIs.
 
