@@ -1,7 +1,10 @@
-var controller;
 var Login = function() {
     var login = {
+        content:null,
+        self: null,
         init: function() {
+            self = this;
+            this.content = $("#tab-content");
             if (!login.status) {
                 this.renderLoginView();
             }
@@ -17,10 +20,13 @@ var Login = function() {
             return login.valida();
         },
         renderLoginView: function() {
+
             if (login.status == true) {
                 return login;
             }
             $('#menu').hide();
+            this.content.load("./views/login.html", function(data){
+            })
 
             var $tab = $('#tab-content');
             $tab.empty();

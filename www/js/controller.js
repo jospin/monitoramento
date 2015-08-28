@@ -6,19 +6,25 @@ var Controller = function() {
         init: function()
         {
             self = this;
-            this.loadEvents();
             this.content = $("#tab-content");
-            console.log(this.content);
+            this.loadEvents();
             // self.renderSearchView();
         },
 
         loadEvents: function()
         {
             this.action = 'login';
+            var object = this.action.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+            $.getScript( "js/controller/"+this.action+".js", function( data, textStatus, jqxhr ) {
+
+                if (jqxhr.status == 200) {
+                    var action = window[object]();
+                    return action;
+                } else {
+                    throw new Error("controller.js não foi carregado");
+                }
+            });
             $('#menu .tab-button').on('click', this.onTabClick);
-            this.content.load("./views/" +  self.action + ".html", function(data){
-                console.log(data);
-            })
         },
 
         onTabClick: function()
