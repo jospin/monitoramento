@@ -1,55 +1,38 @@
 var Controller = function() {
     var controller = {
         self: null,
-        init: function() {
-            console.log('Vem');
+        action: null,
+        content:null,
+        init: function()
+        {
             self = this;
-            this.bindEvents();
-            self.renderSearchView();
+            this.loadEvents();
+            this.content = $("#tab-content");
+            console.log(this.content);
+            // self.renderSearchView();
         },
 
-        bindEvents: function() {
-            $('.tab-button').on('click', this.onTabClick);
+        loadEvents: function()
+        {
+            this.action = 'login';
+            $('#menu .tab-button').on('click', this.onTabClick);
+            this.content.load("./views/" +  self.action + ".html", function(data){
+                console.log(data);
+            })
         },
 
-        onTabClick: function(e) {
-            e.preventDefault();
+        onTabClick: function()
+        {
             if ($(this).hasClass('active')) {
                 return;
             }
+            self.action = $(this).data('tab').replace('#', '');
+            console.log(self.action);
+            this.content.load("./views/" +  self.action + ".html", function(data){
+                console.log(data);
+            })
+        }
 
-            var tab = $(this).data('tab');
-            if (tab === '#add-tab') {
-                self.renderPostView();
-            } else {
-                self.renderSearchView();
-            }
-        },
-
-        renderPostView: function() {
-            $('.tab-button').removeClass('active');
-            $('#post-tab-button').addClass('active');
-
-            var $tab = $('#tab-content');
-            $tab.empty();
-            $("#tab-content").load("./views/post-project-view.html", function(data) {
-                $('#tab-content').find('#post-project-form').on('submit', self.postProject);
-            });
-        },
-
-        renderSearchView: function() {
-            $('.tab-button').removeClass('active');
-            $('#search-tab-button').addClass('active');
-
-            var $tab = $('#tab-content');
-            $tab.empty();
-
-            var $projectTemplate = null;
-            $("#tab-content").load("./views/search-project-view.html", function(data) {
-                $projectTemplate = $('.project').remove();
-                // Load projects here
-            });
-        },
 
     }
     controller.init();

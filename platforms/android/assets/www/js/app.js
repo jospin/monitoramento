@@ -1,6 +1,4 @@
 var controller = null;
-var login = null;
-
 app = {
     init: function() {
         if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
@@ -10,11 +8,13 @@ app = {
         }
     },
     onDeviceReady: function() {
-        login = new Login();
-        if (login.valida()) {
-            controller = new Controller();
-        }
+        $.getScript( "js/controller.js", function( data, textStatus, jqxhr ) {
+            if (jqxhr.status == 200) {
+                controller = new Controller();
+            } else {
+                throw new Error("controller.js não foi carregado");
+            }
+        });
     }
 };
-
 app.init();
