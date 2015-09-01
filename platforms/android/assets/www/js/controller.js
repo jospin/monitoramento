@@ -13,10 +13,9 @@ var Controller = function() {
 
         loadEvents: function()
         {
-            this.action = 'login';
+            this.action = 'mapa';
             var object = this.action.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
             $.getScript( "js/controller/"+this.action+".js", function( data, textStatus, jqxhr ) {
-
                 if (jqxhr.status == 200) {
                     var action = window[object]();
                     return action;
@@ -33,9 +32,9 @@ var Controller = function() {
                 return;
             }
             self.action = $(this).data('tab').replace('#', '');
-            console.log(self.action);
+
             this.content.load("./views/" +  self.action + ".html", function(data){
-                console.log(data);
+                //console.log(data);
             })
         }
 

@@ -17,6 +17,7 @@ var Login = function() {
         onLogin: function(){
             login.status = true;
             $('#menu').show();
+                controller = new Controller();
             return login.valida();
         },
         renderLoginView: function() {
@@ -25,7 +26,7 @@ var Login = function() {
                 return login;
             }
             $('#menu').hide();
-            this.content.load("./views/login.html", function(data){
+                this.content.load("./views/login.html", function(data){
             })
 
             var $tab = $('#tab-content');
